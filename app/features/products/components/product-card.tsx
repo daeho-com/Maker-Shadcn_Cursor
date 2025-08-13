@@ -21,7 +21,7 @@ export default function ProductCard({
   upvotes 
 }: ProductCardProps) {
   return (
-    <Link to={`/products/${productId}`}>
+    <Link to={`/products/${productId}`} className="block">
       <Card className="w-full flex flex-row items-center justify-between py-4 bg-transparent hover:bg-card/50">
         <CardHeader>
           <CardTitle className="text-2xl font-semibold leading-none tracking-tight whitespace-nowrap">

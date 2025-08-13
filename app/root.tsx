@@ -24,7 +24,7 @@ export const links: Route.LinksFunction = () => [
   },
 ];
 
-export function Layout({ children }: { children: React.ReactNode }) {
+export default function App() {
   return (
     <html lang="en" className="">
       <head>
@@ -34,20 +34,16 @@ export function Layout({ children }: { children: React.ReactNode }) {
         <Links />
       </head>
       <body>
-        {children}
+        <main className="px-20">
+          <div className="py-16">
+            <Navigation isLoggedIn={true} hasNotifications={true} hasMessages={true} />
+            <Outlet />
+          </div>
+        </main>
         <ScrollRestoration />
         <Scripts />
       </body>
     </html>
-  );
-}
-
-export default function App() {
-  return (
-    <div className = "py-16">
-      <Navigation isLoggedIn = {true} hasNotifications = {true} hasMessages = {true} />
-      <Outlet />
-    </div>
   );
 }
 

@@ -1,4 +1,5 @@
 import { Link, type MetaFunction } from "react-router";
+import type { Route } from "./+types/home-page";
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "../components/ui/card";
 import { ChevronRightIcon, ChevronUpIcon, DotIcon, EyeIcon, HeartIcon, MessageCircleIcon } from "lucide-react";
 import { Button } from "../components/ui/button";
@@ -16,6 +17,7 @@ export const meta: MetaFunction = () => {
         { name: "description", content: "Welcome to our WeMake"},
     ];
 };
+
 
 export default function HomePage() {
     return (

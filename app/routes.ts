@@ -39,5 +39,9 @@ export default [
                 ]),
             ]),
         ]),
+    ]),
+    ...prefix("ideas", [
+        index("features/ideas/pages/ideas-page.tsx"),
+        route("/:ideaID", "features/ideas/pages/idea-page.tsx"),
     ])
 ] satisfies RouteConfig;

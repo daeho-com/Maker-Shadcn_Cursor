@@ -5,6 +5,7 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useLocation,
 } from "react-router";
 
 import type { Route } from "./+types/root";
@@ -25,6 +26,7 @@ export const links: Route.LinksFunction = () => [
 ];
 
 export default function App() {
+  const {pathname} = useLocation(); 
   return (
     <html lang="en" className="">
       <head>
@@ -34,9 +36,11 @@ export default function App() {
         <Links />
       </head>
       <body>
-        <main className="px-20">
-          <div className="py-16">
-            <Navigation isLoggedIn={true} hasNotifications={true} hasMessages={true} />
+        <main>
+          <div className= {pathname.includes("/auth") ? "" : "py-16 px-20"}>
+            {pathname.includes("/auth") ? null : (
+              <Navigation isLoggedIn={true} hasNotifications={true} hasMessages={true} />
+            )}
             <Outlet />
           </div>
         </main>

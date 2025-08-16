@@ -3,6 +3,7 @@ import { Button } from "../../../common/components/ui/button";
 import { Input } from "../../../common/components/ui/input";
 import { Label } from "../../../common/components/ui/label";
 import InputPair from "~/common/components/input-pair";
+import AuthButtons from "../components/auth-buttons";
 
 export default function LoginPage() {
   return (
@@ -35,6 +36,7 @@ export default function LoginPage() {
                 />
                 <Button type = "submit" className = "w-full">Login</Button>
             </Form>
+            <AuthButtons />
         </div>
     </div>
   );

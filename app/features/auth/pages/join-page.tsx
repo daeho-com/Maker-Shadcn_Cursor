@@ -3,6 +3,7 @@ import { Form } from "react-router";
 import InputPair from "~/common/components/input-pair";
 import { Button } from "~/common/components/ui/button";
 import { Link } from "react-router";
+import AuthButtons from "../components/auth-buttons";
 
 export const meta: Route.MetaFunction = () => {
     return [
@@ -19,7 +20,7 @@ export default function JoinPage() {
                     Login
                 </Link>
             </Button>
-            <div className = "flex flex-col items-center justify-center gap-10 w-full max-w-md">
+            <div className = "flex flex-col items-center justify-center gap-4 w-full max-w-md">
                 <h1 className = "text-2xl font-semibold">Create an account</h1>
                 <Form className = "w-full space-y-4">
                     <InputPair
@@ -60,6 +61,7 @@ export default function JoinPage() {
                     />
                     <Button type = "submit" className = "w-full">Create account</Button>
                 </Form>
+                <AuthButtons />
             </div>
         </div>
     )

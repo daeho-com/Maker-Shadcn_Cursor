@@ -47,27 +47,27 @@ const menus = [
             {
                 name : "Remotes Jobs",
                 description : "Find a remote job in your organization",
-                to : "/job?location=remote",
+                to : "/jobs?type=remote",
             },
             {
                 name : "Full-Time Jobs",
                 description : "Find a full-time job in your organization",
-                to : "/job?type=full-time",
+                to : "/jobs?type=full-time",
             },
             {
                 name : "Freelance Jobs",
                 description : "Find a freelance job in your organization",
-                to : "/job?type=freelance",
+                to : "/jobs?type=freelance",
             },
             {
                 name : "Internships",
                 description : "Find an internship in your organization",
-                to : "/job?type=internship",
+                to : "/jobs?type=internship",
             },
             {
                 name : "Submit a Job",
                 description : "Submit a job to be featured on Wemake",
-                to : "/job/submit",
+                to : "/jobs/submit",
             },
         ]
     },
@@ -154,7 +154,7 @@ export default function Navigation(
                                                 className={cn([
                                                     "select-none rounded-md transition-colors hover:bg-accent focus:bg-accent",
                                                     item.to === "/products/promote" && "col-span-2 bg-primary/10 hover:bg-primary/20 focus:bg-primary/20",
-                                                    item.to === "/job/submit" && "col-span-2 bg-primary/10 hover:bg-primary/20 focus:bg-primary/20",
+                                                    item.to === "/jobs/submit" && "col-span-2 bg-primary/10 hover:bg-primary/20 focus:bg-primary/20",
                                                 ])}
                                             >
                                                 <NavigationMenuLink asChild>

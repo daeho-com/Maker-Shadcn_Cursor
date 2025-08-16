@@ -2,7 +2,9 @@ import { Link } from "react-router";
 import { Card, CardHeader, CardTitle, CardFooter } from "~/common/components/ui/card";
 import { Button } from "~/common/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "~/common/components/ui/avatar";
-import { DotIcon } from "lucide-react";
+import { DotIcon, ChevronUpIcon } from "lucide-react";
+import { cn } from "~/lib/utils";
+
 
 interface PostCardProps {
   postId: string;
@@ -13,6 +15,8 @@ interface PostCardProps {
   avatarSrc?: string;
   avatarFallback: string;
   content?: React.ReactNode;
+  expanded?: boolean;
+  upvotes?: number;
 }
 
 export default function PostCard({
@@ -23,20 +27,23 @@ export default function PostCard({
   timeAgo,
   avatarSrc,
   avatarFallback,
-  content
+  content,
+  expanded = false,
+  upvotes = 0,
 }: PostCardProps) {
   return (
-    <Link to={`/community/${postId}`}>
-      <Card className="bg-transparent hover:bg-card/50 transition-colors">
-        <CardHeader className="flex flex-row items-center gap-2">
+    <Link to={`/community/${postId}`} className = "block">
+      <Card className={cn("bg-transparent hover:bg-card/50 transition-colors", 
+        expanded ? "flex flex-row items-center justify-between" : "")}>
+        <CardHeader className={cn("flex flex-row items-center gap-2", expanded ? "flex-1" : "")}>
           <Avatar className="size-14">
             <AvatarFallback>
               <span>{avatarFallback}</span>
             </AvatarFallback>
             <AvatarImage src={avatarSrc} />
           </Avatar>
-          <div className="space-y-2">
-            <CardTitle>{title}</CardTitle>
+          <div className="space-y-2 flex-1">
+            <CardTitle className="line-clamp-2">{title}</CardTitle>
             <div className="flex gap-2 text-sm leading-none text-muted-foreground">
               <span>{author} on {category}</span>
               <DotIcon className = "size-4" />
@@ -49,11 +56,21 @@ export default function PostCard({
             )}
           </div>
         </CardHeader>
-        <CardFooter className="flex justify-end">
-          <Button variant="link" asChild>
-            <Link to={`/community/${postId}`}>Reply &rarr;</Link>
-          </Button>
-        </CardFooter>
+        {!expanded && (
+          <CardFooter className="flex justify-end">
+            <Button variant="link" asChild>
+              <Link to={`/community/${postId}`}>Reply &rarr;</Link>
+            </Button>
+          </CardFooter>
+        )}
+        {expanded && (
+          <CardFooter className="flex justify-end pt-0">
+              <Button variant="outline" className="flex h-14 flex-col">
+                <ChevronUpIcon className="size-4 shrink-0" />
+                <span>{upvotes}</span>
+              </Button>
+          </CardFooter>
+        )}
       </Card>
     </Link>
   );

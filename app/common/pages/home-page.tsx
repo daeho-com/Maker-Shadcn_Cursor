@@ -92,7 +92,7 @@ export default function HomePage() {
         <JobCard
           jobId="jobId"
           title="Software Engineer"
-          company="Tesla"
+          company="Tesla" 
           companyLogo="https://github.com/teslamotors.png"
           timeAgo="12 hours ago"
           salary="$100,000 - $120,000"

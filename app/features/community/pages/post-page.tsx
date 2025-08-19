@@ -7,6 +7,8 @@ import { ChevronUpIcon, DotIcon } from "lucide-react";
 import { Form } from "react-router";
 import { Textarea } from "~/common/components/ui/textarea";
 import { Avatar, AvatarFallback, AvatarImage } from "~/common/components/ui/avatar";
+import { Badge } from "~/common/components/ui/badge";
+import { Reply } from "~/features/community/components/reply";
 
 export const meta: Route.MetaFunction = () => {
   const { postID } = useParams();
@@ -19,35 +21,36 @@ export const meta: Route.MetaFunction = () => {
 export default function PostPage() {
 
   return (
+    <div className = "space-y-10">
+    <Breadcrumb>
+      <BreadcrumbList>
+        <BreadcrumbItem>
+          <BreadcrumbLink asChild>
+            <Link to="/community">
+            Community
+            </Link>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink asChild>
+            <Link to="/community/?topic=productivity">
+              Productivity
+            </Link>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+        <BreadcrumbSeparator />
+        <BreadcrumbItem>
+          <BreadcrumbLink asChild>
+            <Link to="/community/postId">
+              What is the best productivity tool?
+            </Link>
+          </BreadcrumbLink>
+        </BreadcrumbItem>
+      </BreadcrumbList>
+    </Breadcrumb>
     <div className="grid grid-cols-6 items-start gap-20">
       <div className="col-span-4 space-y-10">
-        <Breadcrumb>
-          <BreadcrumbList>
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/community">
-                Community
-                </Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/community/?topic=productivity">
-                  Productivity
-                </Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-            <BreadcrumbSeparator />
-            <BreadcrumbItem>
-              <BreadcrumbLink asChild>
-                <Link to="/community/postId">
-                  What is the best productivity tool?
-                </Link>
-              </BreadcrumbLink>
-            </BreadcrumbItem>
-          </BreadcrumbList>
-        </Breadcrumb>
         <div className = "flex w-full items-start gap-3">
           <Button variant="outline" className="flex h-14 flex-col">
                   <ChevronUpIcon className="size-4 shrink-0" />
@@ -73,7 +76,7 @@ export default function PostPage() {
             </div>
             <Form className = "flex items-start gap-5 w-full">
               <Avatar className = "size-14">
-              <AvatarFallback>N</AvatarFallback>
+                <AvatarFallback>N</AvatarFallback>
                 <AvatarImage src="https://github.com/serranoarevalo.png" />
               </Avatar>
               <div className = "w-full flex flex-col items-end gap-5">
@@ -85,11 +88,39 @@ export default function PostPage() {
                 <Button type="submit">Reply</Button>
               </div>
             </Form>
+            <div className = "flex flex-col gap-4 items-start">
+              <h4 className = "font-semibold">10 Replies</h4>
+              <Reply 
+                content="I'm looking for a new productivity tool that can help me stay organized and focused. Any recommendations? I've tried Notion, but it's not for me. I'm looking for something that is easy to use and has a lot of features."
+                name="Nico"
+                username="nico"
+                avatarUrl="https://github.com/serranoarevalo.png"
+                avatarFallback="N"
+                timestamp="12 hours ago"
+                topLevel
+              />
+            </div>
+          </div>
+        </div> 
+      </div>
+      <aside className="col-span-2 space-y-5 border rounded-lg p-6 shadow-sm">
+        <div className = "flex gap-5">
+          <Avatar className = "size-14">
+            <AvatarFallback>N</AvatarFallback>
+            <AvatarImage src="https://github.com/serranoarevalo.png" />
+          </Avatar>
+          <div className = "flex flex-col">
+            <h4 className = "text-sm font-medium">Nico</h4>
+            <Badge variant="secondary">Entrepreneur</Badge>
           </div>
         </div>
-      </div>
-      <aside className="col-span-2 "></aside>
-
+        <div className = "gap-2 text-sm flex flex-col">
+          <span>🥳 Joined 3 months ago</span>
+          <span>🖌️ Launched 10 products</span>
+          <Button variant="outline" className = "w-full">Follow</Button>
+        </div>
+      </aside>
+    </div>
     </div>
   );
 } 

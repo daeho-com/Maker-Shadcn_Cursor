@@ -106,7 +106,7 @@ export default function CommunityPage() {
                     </div>
                 </div>
                 <aside className = "col-span-2 space-y-4">
-                    <div className = "text-sm text-muted-foreground font-bold uppercase">Topics</div>
+                    <span className = "text-sm text-muted-foreground font-bold uppercase">Topics</span>
                     <div className = "flex flex-col gap-4 items-start">
                         {["AI Tools", "Design Tools", "Productivity Tools", "Marketing Tools", "Dev Tools"].map((category) => (
                         <Button asChild variant = "link" key = {category} className = "pl-0">

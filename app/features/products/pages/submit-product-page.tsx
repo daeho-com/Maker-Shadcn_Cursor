@@ -17,7 +17,7 @@ export const meta: Route.MetaFunction = () => {
 }
 
 
-export default function SubmitPage({actionData}: Route.ComponentProps) {
+export default function SubmitPage() {
   const [icon, setIcon] = useState<string | null>(null);
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     if (event.target.files) {
@@ -89,7 +89,7 @@ export default function SubmitPage({actionData}: Route.ComponentProps) {
           <Label className = "flex flex-col gap-1px items-start">
             Icon
             <small className="text-muted-foreground">The icon of your product</small>
-            </Label>
+          </Label>
           <Input type = "file" className = "w-1/2" onChange = {onChange} required name = "icon" />
           <div className = "flex flex-col gap-1px text-xs">
             <span className = "text-muted-foreground">Recommend size : 128x128px</span>

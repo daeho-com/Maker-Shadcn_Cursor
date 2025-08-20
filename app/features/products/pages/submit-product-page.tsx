@@ -1,4 +1,4 @@
-import type { Route } from "./+types/submit-page";
+import type { Route } from "./+types/submit-product-page";
 import { z } from "zod";
 import { Hero } from "~/common/components/hero";
 import { Form } from "react-router";

@@ -79,7 +79,7 @@ export default [
             route("/ideas", "features/users/pages/dashboard-ideas-page.tsx"),
             route("/products/:productID", "features/users/pages/dashboard-product-page.tsx"),
         ]),
-        route("/profile", "features/users/pages/profile-page.tsx"),
+        route("/profile", "features/users/pages/my-profile-page.tsx"),
         route("/notifications", "features/users/pages/notifications-page.tsx"),
         route("/settings", "features/users/pages/settings-page.tsx"),
         ...prefix("/messages", [
@@ -87,5 +87,11 @@ export default [
             route("/:messageID", "features/users/pages/message-page.tsx"),
         ]),
     ]),
-    route("/users/:userID", "features/users/pages/user-page.tsx"),
+    layout("features/users/layouts/user-layout.tsx", [
+        ...prefix("/users/:username", [
+            index("features/users/pages/profile-page.tsx"),
+            route("/products", "features/users/pages/profile-products-page.tsx"),
+            route("/posts", "features/users/pages/profile-posts-page.tsx"),
+        ]),
+    ]),
 ] satisfies RouteConfig;

@@ -48,7 +48,7 @@ export default function DashboardLayout() {
                     </SidebarGroup>
                 </SidebarContent>
             </Sidebar>
-            <div className = "h-full flex-1 overflow-y-scroll">
+            <div className = "w-full h-full overflow-y-scroll">
                 <Outlet />
             </div>
         </SidebarProvider>

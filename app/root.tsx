@@ -37,7 +37,7 @@ export default function App() {
       </head>
       <body>
         <main>
-          <div className= {pathname.includes("/auth") ? "" : "py-16 px-20"}>
+          <div className= {pathname.includes("/auth") ? "" : "py-16 px-5 lg:px-20"}>
             {pathname.includes("/auth") ? null : (
               <Navigation isLoggedIn={true} hasNotifications={true} hasMessages={true} />
             )}

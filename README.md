@@ -1,87 +1,35 @@
-# Welcome to React Router!
+## 노마드 코더 강의 중 1인 개발자를 위한 Maker 강의 내용 학습
+- - -
 
-A modern, production-ready template for building full-stack React applications using React Router.
+- **1-1 ~ 1-6** 강의 내용 : React Router v7 프로젝트 파일 구조에 관하여
 
-[![Open in StackBlitz](https://developer.stackblitz.com/img/open_in_stackblitz.svg)](https://stackblitz.com/github/remix-run/react-router-templates/tree/main/default)
+- **2-1 ~ 2-6** 강의 내용 : AI Cursor가 무엇인지에 관하여
 
-## Features
+- **3-1 ~ 3-49** 강의 내용 : Shadcn, Cursor를 중심으로 매력적인 UI를 만들어본다.
 
-- 🚀 Server-side rendering
-- ⚡️ Hot Module Replacement (HMR)
-- 📦 Asset bundling and optimization
-- 🔄 Data loading and mutations
-- 🔒 TypeScript by default
-- 🎉 TailwindCSS for styling
-- 📖 [React Router docs](https://reactrouter.com/)
+1. Home page 제작
+2. Products Page 제작
+3. Jobs Page 제작
+4. Community Page 제작
+5. IdeasGPT Page 제작
+6. Teams Page 제작
+7. User profile, Login Page 제작
 
-## Getting Started
 
-### Installation
-
-Install the dependencies:
-
-```bash
-npm install
-```
-
-### Development
-
-Start the development server with HMR:
-
-```bash
-npm run dev
-```
-
-Your application will be available at `http://localhost:5173`.
-
-## Building for Production
-
-Create a production build:
-
-```bash
-npm run build
-```
-
-## Deployment
-
-### Docker Deployment
-
-To build and run using Docker:
-
-```bash
-docker build -t my-app .
-
-# Run the container
-docker run -p 3000:3000 my-app
-```
-
-The containerized application can be deployed to any platform that supports Docker, including:
-
-- AWS ECS
-- Google Cloud Run
-- Azure Container Apps
-- Digital Ocean App Platform
-- Fly.io
-- Railway
-
-### DIY Deployment
-
-If you're familiar with deploying Node applications, the built-in app server is production-ready.
-
-Make sure to deploy the output of `npm run build`
-
-```
-├── package.json
-├── package-lock.json (or pnpm-lock.yaml, or bun.lockb)
-├── build/
-│   ├── client/    # Static assets
-│   └── server/    # Server-side code
-```
-
-## Styling
-
-This template comes with [Tailwind CSS](https://tailwindcss.com/) already configured for a simple default starting experience. You can use whatever CSS framework you prefer.
+- ~~**4-1 ~ 4-10** 강의~~
+- ~~**5-1 ~ 5-11** 강의~~
+- ~~**6-1 ~ 6-14** 강의~~  
+- ~~**7-1 ~ 7-10** 강의~~
+- ~~**8-1 ~ 8-13** 강의~~
+- ~~**9-1 ~ 9-6** 강의~~
+- ~~**10-1 ~ 10-8** 강의~~
+- ~~**11-1 ~ 11-2** 강의~~
+- ~~**12-1 ~ 12-4** 강의~~
+- ~~**13-1 ~ 13-4** 강의~~
+- ~~**14-1 ~ 14-6** 강의~~
 
 ---
 
-Built with ❤️ using React Router.
+
+
+

@@ -15,6 +15,27 @@
       "when": 1756093883165,
       "tag": "0001_tough_hercules",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1756173958287,
+      "tag": "0002_lively_harrier",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1756174508586,
+      "tag": "0003_spooky_cloak",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1756175760703,
+      "tag": "0004_nasty_randall",
+      "breakpoints": true
     }
   ]
 }

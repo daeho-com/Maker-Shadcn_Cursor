@@ -4,50 +4,49 @@ import { Button } from "~/common/components/ui/button";
 import { Avatar, AvatarFallback, AvatarImage } from "~/common/components/ui/avatar";
 import { DotIcon, ChevronUpIcon } from "lucide-react";
 import { cn } from "~/lib/utils";
+import { DateTime } from "luxon";
 
 
 interface PostCardProps {
-  postId: string;
+  id: number;
   title: string;
   author: string;
   category: string;
-  timeAgo: string;
-  avatarSrc?: string;
-  avatarFallback: string;
+  timeAgo: Date;
+  avatarSrc?: string | null;
   content?: React.ReactNode;
   expanded?: boolean;
   upvotes?: number;
 }
 
 export default function PostCard({
-  postId,
+  id,
   title,
   author,
   category,
   timeAgo,
   avatarSrc,
-  avatarFallback,
   content,
   expanded = false,
   upvotes = 0,
 }: PostCardProps) {
   return (
-    <Link to={`/community/${postId}`} className = "block">
+    <Link to={`/community/${id}`} className = "block">
       <Card className={cn("bg-transparent hover:bg-card/50 transition-colors", 
         expanded ? "flex flex-row items-center justify-between" : "")}>
         <CardHeader className={cn("flex flex-row items-center gap-2", expanded ? "flex-1" : "")}>
           <Avatar className="size-14">
             <AvatarFallback>
-              <span>{avatarFallback}</span>
+              <span>{author[0]}</span>
             </AvatarFallback>
-            <AvatarImage src={avatarSrc} />
+            <AvatarImage src={avatarSrc || undefined} />
           </Avatar>
           <div className="space-y-2 flex-1">
             <CardTitle className="line-clamp-2">{title}</CardTitle>
             <div className="flex gap-2 text-sm leading-none text-muted-foreground">
               <span>{author} on {category}</span>
               <DotIcon className = "size-4" />
-              <span>{timeAgo}</span>
+              <span>{DateTime.fromJSDate(timeAgo).toRelative()}</span>
             </div>
             {content && (
               <div className="mt-2">
@@ -59,7 +58,7 @@ export default function PostCard({
         {!expanded && (
           <CardFooter className="flex justify-end">
             <Button variant="link" asChild>
-              <Link to={`/community/${postId}`}>Reply &rarr;</Link>
+              <Link to={`/community/${id}`}>Reply &rarr;</Link>
             </Button>
           </CardFooter>
         )}

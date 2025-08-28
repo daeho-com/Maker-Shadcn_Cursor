@@ -10,6 +10,7 @@ import { Form } from "react-router";
 import { Input } from "~/common/components/ui/input";
 import { SearchIcon } from "lucide-react";
 import PostCard from "~/features/community/components/post-card";
+import { getTopics, getPosts } from "../queries";
 
 
 export const meta: Route.MetaFunction = () => {
@@ -18,7 +19,13 @@ export const meta: Route.MetaFunction = () => {
     ]
 }
 
-export default function CommunityPage() {
+export const loader = async () => {
+    const topics = await getTopics();
+    const posts = await getPosts();
+    return { topics, posts };
+}
+
+export default function CommunityPage({loaderData}: Route.ComponentProps) {
     const [searchParams, setSearchParams] = useSearchParams();
     const sort = searchParams.get("sort") || "newest";
     const period = searchParams.get("period") || "all";
@@ -91,15 +98,15 @@ export default function CommunityPage() {
                         </Button>
                     </div>
                     <div className = "space-y-5">
-                        {Array.from({length: 11}).map((_, index) => (
+                        {loaderData.posts.map((post) => (
                             <PostCard
-                            postId={`post-${index}`}
-                            title={`What is the best productivity tool?`}
-                            author={`John Doe ${index}`}
-                            category={`Productivity`}
-                            timeAgo="12 hours ago"
-                            avatarSrc="https://github.com/Apple.png"
-                            avatarFallback="N"
+                            id={post.postId}
+                            title={post.title}
+                            author={post.author}
+                            category={post.topic}
+                            timeAgo={post.createdAt}
+                            avatarSrc={post.authorAvatarUrl}
+                            upvotes={post.upvotes}
                             expanded 
                             />
                             ))}
@@ -108,10 +115,10 @@ export default function CommunityPage() {
                 <aside className = "col-span-2 space-y-4">
                     <span className = "text-sm text-muted-foreground font-bold uppercase">Topics</span>
                     <div className = "flex flex-col gap-4 items-start">
-                        {["AI Tools", "Design Tools", "Productivity Tools", "Marketing Tools", "Dev Tools"].map((category) => (
-                        <Button asChild variant = "link" key = {category} className = "pl-0">
-                            <Link to = {`/community?topic=${category}`}>
-                                {category}
+                        {loaderData.topics.map((topic) => (
+                        <Button asChild variant = "link" key = {topic.slug} className = "pl-0">
+                            <Link to = {`/community?topic=${topic.slug}`}>
+                                {topic.name}
                             </Link>
                         </Button>
                         ))}

@@ -12,7 +12,7 @@ interface PostCardProps {
   title: string;
   author: string;
   category: string;
-  timeAgo: Date;
+  timeAgo: string;
   avatarSrc?: string | null;
   content?: React.ReactNode;
   expanded?: boolean;
@@ -46,7 +46,7 @@ export default function PostCard({
             <div className="flex gap-2 text-sm leading-none text-muted-foreground">
               <span>{author} on {category}</span>
               <DotIcon className = "size-4" />
-              <span>{DateTime.fromJSDate(timeAgo).toRelative()}</span>
+              <span>{DateTime.fromISO(timeAgo).toRelative()}</span>
             </div>
             {content && (
               <div className="mt-2">
